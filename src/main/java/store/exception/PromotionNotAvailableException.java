@@ -7,7 +7,6 @@ public class PromotionNotAvailableException extends RuntimeException {
         super(ErrorMessage.PROMOTION_NOT_AVAILABLE.getMessage(promotionType));
         this.promotionType = promotionType;
     }
-
     public String getPromotionType() {
         return promotionType;
     }

@@ -67,10 +67,4 @@ public class Order {
         }
         return freeItems;
     }
-
-    private int calculateMembershipDiscount(int total, boolean applyMembership) {
-        if (!applyMembership) return 0;
-        int discount = (int) (total * 0.3);
-        return Math.min(discount, 8000); // 최대 한도 8000원 적용
-    }
 }

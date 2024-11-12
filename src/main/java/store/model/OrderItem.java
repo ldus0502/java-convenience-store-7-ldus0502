@@ -16,7 +16,6 @@ public class OrderItem {
         }
         this.product = product;
         this.quantity = quantity;
-
         try {
             this.product.reduceStock(quantity);
         } catch (OutOfStockException e) {
@@ -38,7 +37,6 @@ public class OrderItem {
 
     public List<OrderItem> applyPromotion(Promotion promotion) {
         List<OrderItem> freeItems = new ArrayList<>();
-
         if (promotion != null && promotion.isEligible(quantity)) {
             int freeQuantity = promotion.applyPromotion(quantity);
             if (freeQuantity > 0) {

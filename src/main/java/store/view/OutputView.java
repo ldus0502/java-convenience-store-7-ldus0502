@@ -25,22 +25,6 @@ public class OutputView {
         }
     }
 
-    private void printAvailableProduct(Product product) {
-        if (product.getStock() > 0) {
-            System.out.printf("- %s %,d원 %d개 %s%n",
-                    product.getName(),
-                    product.getPrice(),
-                    product.getStock(),
-                    getPromotionType(product));
-        }
-    }
-
-    private void printOutOfStockProduct(Product product) {
-        if (product.getStock() == 0) {
-            System.out.printf("- %s %,d원 0개%n", product.getName(), product.getPrice());
-        }
-    }
-
     private String getPromotionType(Product product) {
         return product.getPromotion() != null ? product.getPromotion().getType().trim() : "";
     }
