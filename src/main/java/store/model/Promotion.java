@@ -9,7 +9,6 @@ public class Promotion {
     private final int freeQuantity;     // 증정 개수
     private final String startDate;
     private final String endDate;
-    private int defaultPrice; // 기본 가격 추가
 
     public Promotion(String type, int requiredQuantity, int freeQuantity, String startDate, String endDate) {
         this.type = type;
@@ -17,14 +16,6 @@ public class Promotion {
         this.freeQuantity = freeQuantity;
         this.startDate = startDate;
         this.endDate = endDate;
-    }
-
-    public int getDefaultPrice() {
-        return defaultPrice;
-    }
-
-    public void setDefaultPrice(int price) {
-        this.defaultPrice = price;
     }
 
     public String getType() {

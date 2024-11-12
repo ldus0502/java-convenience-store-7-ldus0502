@@ -10,16 +10,6 @@ public class Receipt {
     private final int membershipDiscount;
     private final int finalAmount;
 
-    public Receipt(List<OrderItem> purchasedItems, List<OrderItem> freeItems,
-                   int totalAmount, int promotionDiscount, int membershipDiscount, int finalAmount) {
-        this.purchasedItems = purchasedItems;
-        this.freeItems = freeItems;
-        this.totalAmount = totalAmount;
-        this.promotionDiscount = promotionDiscount;
-        this.membershipDiscount = membershipDiscount;
-        this.finalAmount = finalAmount;
-    }
-
     public List<OrderItem> getPurchasedItems() {
         return purchasedItems;
     }
@@ -42,5 +32,15 @@ public class Receipt {
 
     public int getFinalAmount() {
         return finalAmount;
+    }
+
+    public Receipt(List<OrderItem> purchasedItems, List<OrderItem> freeItems,
+                   int totalAmount, int promotionDiscount, int membershipDiscount, int finalAmount) {
+        this.purchasedItems = purchasedItems;
+        this.freeItems = freeItems;
+        this.totalAmount = totalAmount;
+        this.promotionDiscount = promotionDiscount;
+        this.membershipDiscount = membershipDiscount;
+        this.finalAmount = finalAmount;
     }
 }

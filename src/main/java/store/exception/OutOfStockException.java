@@ -7,7 +7,6 @@ public class OutOfStockException extends RuntimeException {
         super(ErrorMessage.OUT_OF_STOCK.getMessage(productName));
         this.productName = productName;
     }
-
     public String getProductName() {
         return productName;
     }

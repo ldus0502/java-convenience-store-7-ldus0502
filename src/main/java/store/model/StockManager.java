@@ -43,32 +43,21 @@ public class StockManager {
     }
 
     public List<Product> getAllProducts() {
-        return products; // 모든 상품 반환
+        return products;
     }
 
     public void ensurePromotionProducts() {
         Set<String> promotionProductNames = products.stream()
-                .filter(product -> product.getPromotion() != null) // 프로모션이 있는 상품만
+                .filter(product -> product.getPromotion() != null)
                 .map(Product::getName)
                 .collect(Collectors.toSet());
         promotionProductNames.forEach(name -> {
             boolean hasNullPromotion = products.stream()
                     .anyMatch(product -> product.getName().equals(name) && product.getPromotion() == null);
-            if (!hasNullPromotion) { // null 프로모션 상품이 없다면 추가
-                int price = findPriceByName(name); // 상품의 가격 조회
+            if (!hasNullPromotion) {
+                int price = findPriceByName(name);
                 products.add(new Product(name, price, 0, null));
             }
-        });
-    }
-
-    public void printAllProducts() {
-        System.out.println("=== Final Products List ===");
-        products.forEach(product -> {
-            System.out.printf("Product: %s, Price: %,d, Stock: %d, Promotion: %s%n",
-                    product.getName(),
-                    product.getPrice(),
-                    product.getStock(),
-                    product.getPromotion() != null ? product.getPromotion().getType() : "None");
         });
     }
 
@@ -79,11 +68,5 @@ public class StockManager {
                 .map(Product::getPrice)
                 .findFirst()
                 .orElse(0); // 기본값 0원 처리
-    }
-
-    // 실제 상품인지 확인하는 헬퍼 메서드 추가
-    private boolean isRealProduct(String name) {
-        return products.stream()
-                .anyMatch(product -> product.getName().equals(name));
     }
 }

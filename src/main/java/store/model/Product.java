@@ -15,6 +15,12 @@ public class Product {
         this.stock = stock;
         this.promotion = promotion;
     }
+    public void reduceStock(int quantity) {
+        if (stock < quantity) {
+            throw new OutOfStockException(ErrorMessage.OUT_OF_STOCK.getMessage(name));
+        }
+        stock -= quantity;
+    }
 
     public String getName() {
         return name;
@@ -30,12 +36,5 @@ public class Product {
 
     public Promotion getPromotion() {
         return promotion;
-    }
-
-    public void reduceStock(int quantity) {
-        if (stock < quantity) {
-            throw new OutOfStockException(ErrorMessage.OUT_OF_STOCK.getMessage(name));
-        }
-        stock -= quantity;
     }
 }

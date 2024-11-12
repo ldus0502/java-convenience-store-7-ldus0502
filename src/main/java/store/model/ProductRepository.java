@@ -31,29 +31,4 @@ public class ProductRepository {
                 : PromotionManager.getPromotionByName(promotionName);
         return new Product(name, price, quantity, promotion);
     }
-
-    private void processFileLines(BufferedReader reader, Map<String, Product> products) throws IOException {
-        String line;
-        while ((line = reader.readLine()) != null) {
-            addProductFromLine(line, products);
-        }
-    }
-
-    private void addProductFromLine(String line, Map<String, Product> products) {
-        String[] parts = line.split(",");
-        String name = parts[0].trim();
-        int price = Integer.parseInt(parts[1].trim());
-        int quantity = Integer.parseInt(parts[2].trim());
-        String promotionName = parts[3].trim();
-
-        Promotion promotion = promotionName.equals("null")
-                ? null
-                : PromotionManager.getPromotionByName(promotionName);
-
-        products.put(name + "-" + quantity, new Product(name, price, quantity, promotion));
-    }
-
-    private void handleIOException(IOException e) {
-        System.out.println("[ERROR] 파일 처리 중 문제가 발생했습니다: " + e.getMessage());
-    }
 }

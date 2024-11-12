@@ -21,10 +21,6 @@ public class PromotionManager {
         return promotions.get(name);
     }
 
-    public static Map<String, Promotion> getAllPromotions() {
-        return promotions; // 모든 프로모션 반환
-    }
-
     private static void addPromotion(String line) {
         String[] parts = line.split(",");
         String productName = parts[0].trim(); // 상품 이름

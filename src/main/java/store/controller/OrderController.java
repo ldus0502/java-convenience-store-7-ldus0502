@@ -24,7 +24,7 @@ public class OrderController {
             executeOrderProcess();
         } catch (OutOfStockException | PromotionNotAvailableException e) {
             outputView.printErrorMessage(e.getMessage());
-            processOrder(); // 재입력 요청
+            processOrder();
         } catch (Exception e) {
             outputView.printErrorMessage("[ERROR] 알 수 없는 오류가 발생했습니다.");
         }

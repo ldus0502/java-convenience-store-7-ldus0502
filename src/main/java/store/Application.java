@@ -1,5 +1,4 @@
 package store;
-
 import store.controller.OrderController;
 import store.model.PromotionManager;
 import store.model.StockManager;
@@ -7,7 +6,6 @@ import store.view.InputView;
 import store.view.OutputView;
 
 import java.io.IOException;
-
 public class Application {
     public static void main(String[] args) {
         try {
